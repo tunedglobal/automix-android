@@ -1,0 +1,1396 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Provide seamless transitions between tracks and beat-matched seek experience within your music player application in Android.">
+      
+      
+        <meta name="author" content="Victor Garcia">
+      
+      
+      
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.18">
+    
+    
+      
+        <title>PacemakerAutomix</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.66ac8b77.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="assets/custom.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pacemakerautomix" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="PacemakerAutomix" class="md-header__button md-logo" aria-label="PacemakerAutomix" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PacemakerAutomix
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Home
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="PacemakerAutomix" class="md-nav__button md-logo" aria-label="PacemakerAutomix" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    PacemakerAutomix
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="." class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+    <a href="#overview" class="md-nav__link">
+      <span class="md-ellipsis">
+        Overview
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+      
+        <li class="md-nav__item">
+    <a href="#get-started" class="md-nav__link">
+      <span class="md-ellipsis">
+        Get Started
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Get Started">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#install-the-sdk" class="md-nav__link">
+      <span class="md-ellipsis">
+        Install the SDK
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Install the SDK">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#requirements" class="md-nav__link">
+      <span class="md-ellipsis">
+        Requirements
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#importing-artifact" class="md-nav__link">
+      <span class="md-ellipsis">
+        Importing artifact
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#configure-the-sdk" class="md-nav__link">
+      <span class="md-ellipsis">
+        Configure the SDK
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Configure the SDK">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#initialize-with-tuned" class="md-nav__link">
+      <span class="md-ellipsis">
+        Initialize with Tuned
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Initialize with Tuned">
+        <ul class="md-nav__list">
+          
+          
+          
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#initialize-with-custom-backend" class="md-nav__link">
+      <span class="md-ellipsis">
+        Initialize with Custom backend
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Initialize with Custom backend">
+        <ul class="md-nav__list">
+          
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#automixsdkstatusobserverdelegate" class="md-nav__link">
+      <span class="md-ellipsis">
+        AutomixSDKStatusObserverDelegate
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#check-if-initialized" class="md-nav__link">
+      <span class="md-ellipsis">
+        Check if initialized
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#turn-automix-on-and-off" class="md-nav__link">
+      <span class="md-ellipsis">
+        Turn Automix on and off
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Turn Automix on and off">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#turn-automix-on" class="md-nav__link">
+      <span class="md-ellipsis">
+        Turn Automix on
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#turn-automix-off" class="md-nav__link">
+      <span class="md-ellipsis">
+        Turn Automix off
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#check-if-on" class="md-nav__link">
+      <span class="md-ellipsis">
+        Check if on
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#control-playback" class="md-nav__link">
+      <span class="md-ellipsis">
+        Control playback
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Control playback">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#player-settings" class="md-nav__link">
+      <span class="md-ellipsis">
+        Player settings
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#explicit-lyrics-filtering" class="md-nav__link">
+      <span class="md-ellipsis">
+        Explicit lyrics filtering
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#update-ui" class="md-nav__link">
+      <span class="md-ellipsis">
+        Update UI
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Update UI">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#receive-status-updates" class="md-nav__link">
+      <span class="md-ellipsis">
+        Receive status updates
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#receive-playback-events" class="md-nav__link">
+      <span class="md-ellipsis">
+        Receive playback events
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#automix-status" class="md-nav__link">
+      <span class="md-ellipsis">
+        Automix Status
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#errors" class="md-nav__link">
+      <span class="md-ellipsis">
+        Errors
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#data-models" class="md-nav__link">
+      <span class="md-ellipsis">
+        Data models
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#data-persistance" class="md-nav__link">
+      <span class="md-ellipsis">
+        Data persistance
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+      <nav class="md-nav" aria-label="Data persistance">
+        <ul class="md-nav__list">
+          
+          
+            <li class="md-nav__item">
+    <a href="#music-metadata-database" class="md-nav__link">
+      <span class="md-ellipsis">
+        Music Metadata Database
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#music-analysis-database" class="md-nav__link">
+      <span class="md-ellipsis">
+        Music Analysis Database
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#playback-log" class="md-nav__link">
+      <span class="md-ellipsis">
+        Playback Log
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#transition-playback-log" class="md-nav__link">
+      <span class="md-ellipsis">
+        Transition Playback Log
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+          
+            <li class="md-nav__item">
+    <a href="#clearing-the-cache" class="md-nav__link">
+      <span class="md-ellipsis">
+        Clearing the cache
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+          
+          
+        </ul>
+      </nav>
+    
+  </li>
+      
+        <li class="md-nav__item">
+    <a href="#api-reference" class="md-nav__link">
+      <span class="md-ellipsis">
+        API Reference
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+      
+        <li class="md-nav__item">
+    <a href="#change-log" class="md-nav__link">
+      <span class="md-ellipsis">
+        Change Log
+      </span>
+    </a>
+  
+    <!-- Table of contents list -->
+    
+  </li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="pacemakerautomix">PacemakerAutomix</h1>
+<p>Provide seamless transitions between tracks and beat-matched seek experience within your music player application on android.</p>
+<h2 id="overview">Overview</h2>
+<p>PacemakerAutomix is a framework that exposes a player that plays music continuously in your playlist, by analyzing the tracks in your playlist to provide optimal machine-learned transitions between the tracks in the playlist as well as transitions when you seek within a track. This player can act as an automatic DJ for your music as well as making jumps in play position within tracks often feel as if no seek really ever happened.</p>
+<p align="center">
+    <img src="overview-tuned-demo-automix.png" alt="A player interface that uses the PacemakerAutomix player to reproduce a playlist. The automatically generated transition is highlighted in yellow." style="display:block; margin:auto;">
+</p>
+
+<h2 id="get-started">Get Started</h2>
+<h3 id="install-the-sdk">Install the SDK</h3>
+<h4 id="requirements">Requirements</h4>
+<p>This library requires minimum Android SDK Level 21, Android 5 Lollipop.</p>
+<h4 id="importing-artifact">Importing artifact</h4>
+<p>PacemakerAutomix can be brougth into your project via maven our maven private repository.</p>
+<p><strong>Step 1</strong>: Add the Tuned Global's maven repository to the list of dependencies</p>
+<p>On your settings.gradle.kts, add the Tuned Global's maven repository:</p>
+<pre><code class="language-kotlin">dependencyResolutionManagement {
+     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+     repositories {
+         // ...
+         maven {
+             url = uri(&quot;http://tgpm-maven-repo.s3-website-us-west-2.amazonaws.com/releases&quot;)
+             isAllowInsecureProtocol = true
+         }
+         // ...
+     }
+}
+</code></pre>
+<p><strong>Step 2</strong>: Add the dependency to your target</p>
+<p>In your build.gradle.kts file, add the PÅacemakerAutomix library:</p>
+<pre><code class="language-kotlin">  // ...
+  implementation(&quot;com.tunedglobal:automix-sdk:0.2.0&quot;)
+  // ...
+</code></pre>
+<p><strong>Step 3</strong>: Add the required Proguard rules for this library</p>
+<p>In your proguard-rules.pro file, add the following:</p>
+<pre><code class="language-kotlin">-keep class com.tunedglobal.automix.logic.cpp.AMJNILib {
+    public static *;
+    public *;
+}
+</code></pre>
+<p><strong>Step 4</strong>: You can now use the PacemakerAutomix library</p>
+<pre><code class="language-kotlin">  // ...
+  import com.tunedglobal.automix.*
+  // ...
+</code></pre>
+<h3 id="configure-the-sdk">Configure the SDK</h3>
+<h4 id="initialize-with-tuned">Initialize with Tuned</h4>
+<p>In order to initialize PacemakerAutomix against Tuned Global's APIs and services you need a TunedRestDelegate and a AutomixSDKStatusObserverDelegate, plus a store ID, applicationId and a country code.</p>
+<pre><code class="language-kotlin">override fun onStart(arguments: Bundle?) {
+    // ...
+
+    val applicationContext: ApplicationContext = myApplicationContext
+    val tunedRestDelegate: TunedRestDelegate = myTunedRestDelegate
+    val automixSDKStatusObserverDelegate: AutomixSDKStatusObserverDelegate = myAutomixSDKStatusObserverDelegate
+    val countryCode: String = myCountryCode // &quot;US&quot; ? &quot;AU&quot;?
+    val storeId: String = myTunedStoreId
+    val applicationId: String = myApplicationId
+    val musicCacheDelegate: String = myMusicCacheDelegate
+    AutomixSDK.initialize(applicationContext,
+                          tunedRestDelegate,
+                          automixSDKStatusObserverDelegate,
+                          AutomixSDKConfig.Builder().country(countryCode).storeId(storeId).applicationId(applicationId).logLevel(4).build(),
+                          myMusicCacheDelegate,
+                          onComplete = 
+    { _ -&gt; 
+         // The Automix SDK public functions can be used from this point onwards :)
+    }, onError = { error, _ -&gt; 
+            // This means you are fobidden to use the Automix SDK or you have no internet connection.
+            return
+    })
+
+    // ...
+}
+</code></pre>
+<h5 id="tunedrestdelegate">TunedRestDelegate</h5>
+<ul>
+<li>PacemakerAutomix requires your client's access &amp; refresh tokens in order to take over playback, provided via TunedRestDelegate/tunedRestTokenExpired(deviceIdentifierForVendor:
+                                          countryCode:
+                                          tunedUserId:
+                                          oldAccessToken:
+                                          refreshToken:
+                                          tokenType:
+                                          onComplete:onError:)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyTunedRestDelegate: TunedRestDelegate {
+    // ...
+    override fun tunedRestTokenExpired(deviceIdentifierForVendor: String,
+                                       countryCode: String,
+                                       tunedUserId: String?,
+                                       oldAccessToken: String?,
+                                       refreshToken: String?,
+                                       tokenType: String?,
+                                       onComplete: ((TunedAuthenticationResponse?, String) -&gt; Unit)?,
+                                       onError: ((AutomixSDKError) -&gt; Unit)?) {
+    this.getNewCredentials(onComplete = { myAccessToken, myTokenType, myTokenExpiresIn, myRefreshToken, myTunedUserId -&gt;
+        val response: TunedAuthenticationResponse = TunedAuthenticationResponse.init()
+        response.access_token = myAccessToken
+        response.token_type = myTokenType
+        response.expires_in = myTokenExpiresIn
+        response.refresh_token = myRefreshToken
+        response.tuned_user_id = myTunedUserId
+        onComplete(response, null)
+    }, onError = { error -&gt;
+        // ...
+        onError(error)
+    })
+}
+</code></pre>
+<ul>
+<li>PacemakerAutomix requires your client's authenticated device, provided via TunedRestDelegate/asyncGetAuthenticatedDevice(deviceIdentifierForVendor:onComplete:onError)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyTunedRestDelegate: TunedRestDelegate {
+    // ...
+    fun asyncGetAuthenticatedDevice(deviceIdentifierForVendor: String,
+                                        onComplete: ((String) -&gt; Unit)?,
+                                        onError: ((AutomixSDKError) -&gt; Unit)?)
+    {
+        // ...
+        val myTunedDeviceId: String = tunedDeviceId
+        onComplete(null, myTunedDeviceId)
+        return
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>This delegate also provides hooks to inject cached track audio data and metadata, to shortcut for efficiency and prevent PacemakerAutomix from querying audio data and metadata to Tuned Global's APIs if they are already available. This also enables offline playback when all required data is available on device. This is done via TunedRestDelegate/syncGetTrackMetadata(trackId:)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyTunedRestDelegate: TunedRestDelegate {
+    // ...
+    override fun syncGetTrackMetadata(trackId: String?): AutomixSDKTrackModel? {
+        // If I have this track cached, I should be able to tell its metadata
+        if (!this.isTrackCached(trackId)) {
+            return null
+        }
+        return this.metadataForTrack(trackId)
+    }
+}
+</code></pre>
+<p>and TunedRestDelegate/syncGetCachedTrack(trackId:)</p>
+<pre><code class="language-kotlin">public class MyTunedRestDelegate: TunedRestDelegate {
+    // ...
+    override fun syncGetCachedTrack(trackId: String): ByteArray? {
+        // If I have this track cached, I should be able to decrypt it and send the data
+        if (!this.isTrackCached(trackId)) {
+            return null
+        }
+        return this.unencryptedDataForTrack(trackId)
+    }
+    // ...
+}
+</code></pre>
+<h5 id="automixsdkmusiccachelistener">AutomixSDKMusicCacheListener</h5>
+<ul>
+<li>PacemakerAutomix will download the tracks it needs to play when they are not provided frtom your cache. It will do so lazizly (as playback or analysis requires). When a track finished downloading, PacemakerAutomix will pass the audio data for you to cache if you need it, as well as notify you of download progress. This is done via  AutomixSDKMusicCacheListener/trackFinishedDownloading(trackId:data:) and AutomixSDKMusicCacheListener/trackBufferingProgress(trackId:progress:)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKMusicCacheListener: AutomixSDKMusicCacheListener {
+    // ...
+    override fun trackFinishedDownloading(trackId: String, data: ByteArray) {
+        // Automix SDK finished downloading a track. If I have offline playback or encrypted cache capabilities I should act accordingly here
+        return this.cacheTrack(trackId, data)
+    }
+    // ...
+}
+</code></pre>
+<pre><code class="language-kotlin">public class MyAutomixSDKMusicCacheListener: AutomixSDKMusicCacheListener {
+    // ...
+    override fun trackBufferingProgress(trackId: String, progress: Float {
+        // Update your UI here
+        this.updateTrackBufferingProgress(trackId, progress)
+    }
+    // ...
+}
+</code></pre>
+<h4 id="initialize-with-custom-backend">Initialize with Custom backend</h4>
+<p>In order to initialize PacemakerAutomix when you take the responsability of providing audio data and metadata you need a AutomixSDKStreamingDelegate and a AutomixSDKStatusObserverDelegate, plus a store ID, applicationId and a country code.</p>
+<pre><code class="language-kotlin">override fun onStart(arguments: Bundle?) {
+    // ...
+
+    val applicationContext: ApplicationContext = myApplicationContext
+    val automixSDKStreamingDelegate: AutomixSDKStreamingDelegate = myAutomixSDKStreamingDelegate
+    val automixSDKStatusObserverDelegate: AutomixSDKStatusObserverDelegate = myAutomixSDKStatusObserverDelegate
+    val countryCode: String = myCountryCode // &quot;US&quot; ? &quot;AU&quot;?
+    val storeId: String = myTunedStoreId
+    val applicationId: String = myApplicationId
+    AutomixSDK.initialize(applicationContext,
+                          automixSDKStreamingDelegate,
+                          automixSDKStatusObserverDelegate,
+                          AutomixSDKConfig.Builder().country(countryCode).storeId(storeId).applicationId(applicationId).logLevel(4).build(),
+                          onComplete = 
+    { _ -&gt; 
+        // The Automix SDK public functions can be used from this point onwards :)
+    }, onError = { error, _ -&gt;
+        // This means you are fobidden to use the Automix SDK or you have no internet connection.
+    })
+
+    // ...
+}
+</code></pre>
+<h5 id="automixsdkstreamingdelegate">AutomixSDKStreamingDelegate</h5>
+<ul>
+<li>If your custom backend puts fetching metadata and track data behing a login, PacemakerAutomix needs to know if the user in your aspplication is logged in or not via AutomixSDKStreamingDelegate/isLoggedIn()</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun isLoggedIn() {
+        return this.loggedIn
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>If your custom backend only allows playback on a device under certain conditions (for instance in only allows one device to play at any given time), PacemakerAutomix needs to know if a device is allowed to play via AutomixSDKStreamingDelegate/asyncCheckDeviceStatus(onComplete:onError:)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun asyncCheckDeviceStatus(onComplete: ((Boolean) -&gt; Unit)?,
+                                        onError: ((AutomixSDKError) -&gt; Unit)?) -&gt; Unit) {
+        this.canDeviceContinuePlaying() { allowedToPlay -&gt;
+            onComplete(allowedToPlay)
+        }
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>PacemakerAutomix requires devices to have a unique identifier, provided via AutomixSDKStreamingDelegate/getDeviceIdentifier()</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun getDeviceIdentifier(): String? {
+        return this.deviceIdentifier
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>This delegate also provides hooks to inject cached track audio data and metadata, to shortcut for efficiency and prevent PacemakerAutomix from querying audio data and metadata to your custom backend if they are already available. This also enables offline playback when all required data is available on device. This is done via <code>AutomixSDKStreamingDelegate/syncGetTrackMetadata(trackId:)</code></li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun syncGetTrackMetadata(trackId: String?): AutomixSDKTrackModel? {
+        // If I have this track cached, I should be able to tell its metadata
+        if (!this.isTrackCached(trackId)) {
+            return null;
+        }
+        return this.metadataForTrack(trackId)
+    }
+    // ...
+}
+</code></pre>
+<p>and AutomixSDKStreamingDelegate/syncGetCachedTrack(trackId:)</p>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun syncGetCachedTrack(trackId: String): ByteArray? {
+        // If I have this track cached, I should be able to decrypt it and send the data
+        if (!this.isTrackCached(trackId)) {
+            return null
+        }
+        return this.unencryptedDataForTrack(trackId)
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>At any time, when track metadata is available, this delegate can store for later use via AutomixSDKStreamingDelegate/cacheMetadata(_:)`</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun cacheMetadata(metadata: List&lt;AutomixSDKTrackModel&gt;) {
+        this.metadataForTrack[metadata.trackId] = metadata
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>PacemakerAutomix will download the trackmetadata as it needs it. When Pacemaker requires to download track metadata, it will do so via AutomixSDKStreamingDelegate/asyncGetTrackMetadata(trackId:onComplete:onError:)``</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun asyncGetTrackMetadata(trackId: String,
+                                       onComplete: ((AutomixSDKTrackModel) -&gt; Unit)?,
+                                       onError: ((AutomixSDKError) -&gt; Unit)?) -&gt; Unit) {
+        this.getTrackMetadata(trackId) { error, trackMetadata -&gt;
+            val automixSDKTrackModel = translateMetadata(trackMetadata)
+            if (error != null) {
+                onError(error)
+                return@getTrackMetadata
+            }
+            onComplete(automixSDKTrackModel)
+            return@getTrackMetadata
+        }
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>When PacemakerAutomix needs to download a track, it will ask for the url for it. It supports sessionID if you want urls to expire and return 403s. It will do so via AutomixSDKStreamingDelegate/asyncGetStream(streamingDeviceId:sessionId:trackId:onComplete:onError:)</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun asyncGetStream(streamingDeviceId: String, sessionId: String, trackId: String, 
+                                onComplete: ((String /* URL */, String? /* newSessionId */, AutomixSDKReportingURLSet?) -&gt; Unit)?,
+                                onError: ((AutomixSDKError) -&gt; Unit)?) {
+        this.getTrackURL(streamingDeviceId, sessionId, trackId) { error, url, newSessionId -&gt;
+            if (error != null) {
+                onError(error)
+                return@getTrackURL
+            }
+            onComplete(url, newSessionId, null)
+        }
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>PacemakerAutomix will log playback events while playing your content. It will do so via AutomixSDKStreamingDelegate/asyncLogPlayEvent(trackId:seconds:guid:logPlayType:onComplete:onError:)``</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun asyncLogPlayEvent(trackId: String, seconds: Int, guid: String, logPlayType: String, 
+                                   onComplete:((Boolean) -&gt; Unit)? = null,
+                                   onError: ((AutomixSDKError) -&gt; Unit)? = null) {
+        this.logPlaybackEvent(trackId, seconds, guid, logPlayType) { error -&gt;
+            if (error != null) {
+                onError(error)
+                return@logPlaybackEvent
+            }
+            onComplete(true)
+            return@logPlaybackEvent
+        }
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>When a track finished downloading, PacemakerAutomix will pass the audio data for you to cache if you need it. This is done via  AutomixSDKStreamingDelegate/trackCompletedDownload(trackId:data:)``</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun trackCompletedDownload(trackId: String, data: ByteArray) {
+        this.cacheTrack(trackId, data)
+    }
+    // ...
+}
+</code></pre>
+<ul>
+<li>As a track is being downloaded, PacemakerAutomix will report download progress via AutomixSDKStreamingDelegate/trackBufferingProgress(trackId:progress:)``</li>
+</ul>
+<pre><code class="language-kotlin">public class MyAutomixSDKStreamingDelegate: AutomixSDKStreamingDelegate {
+    // ...
+    override fun trackBufferingProgress(trackId: String, progress: Float) {
+        this.updateTrackDownloadProgress(trackId, progress)
+    }
+    // ...
+}
+</code></pre>
+<p>Do keep in mind this download is done lazily, as PacemakerAutomix requires data for analysis / playback. There is no guarantee a track will download in its entirety if the track is not played in its entirety.</p>
+<ul>
+<li>
+<p>PacermakerAutomix will soon provide support to display and download artwork, and display track recommendations. As of today, these delegate functions are usued so they can be left unimplemented.</p>
+<ul>
+<li>AutomixSDKStreamingDelegate/asyncGetThumborLocation(onComplete:onError:)</li>
+<li>AutomixSDKStreamingDelegate/asyncGetTrackRecommendations(identifiers:limit:onComplete:onError:)</li>
+</ul>
+</li>
+</ul>
+<h4 id="automixsdkstatusobserverdelegate">AutomixSDKStatusObserverDelegate</h4>
+<p>The AutomixSDKStatusObserverDelegate is responsible for updating your player's UI, please refer to "Update UI"</p>
+<h4 id="check-if-initialized">Check if initialized</h4>
+<p>To check wether PacemakerAutomix is currently initialized, use AutomixSDK/initialized()</p>
+<h3 id="turn-automix-on-and-off">Turn Automix on and off</h3>
+<p>PacemakerAutomix's player can be started and stopped. When it is started, it will take over any other player and start playing the tracks it is fed, and therefore any other player should be at that time paused. When it is stopped, PacemakerAutomix's player will stop rendering audio and so any other player can be resumed.</p>
+<h4 id="turn-automix-on">Turn Automix on</h4>
+<p>When PacemakerAutomix's player is started, it takes over the application's Audio Session and sets it up at a sample rate of 44100, categoy ".playback", IOBufferDuration of ~0.006 and 2 output channels (stereo).</p>
+<p>To start the player, use either AutomixSDK/automixOn(onComplete:onError:) to start it with no content (and wait for content to be provided via the playback control methods, see "Control playback"</p>
+<pre><code class="language-kotlin">    // ...
+    AutomixSDK.getInstance()?.automixOn(onComplete = { status -&gt; 
+        this.started = true
+        // We are now waiting for content.
+        // ...    
+    }, onError = { error, status -&gt;
+        // Something went wrong, playback did not start
+    })
+
+    // ...
+</code></pre>
+<p>, or AutomixSDK/automixOn(identifiers:metadata:playTrackIndex:seconds:autoplay:contextType:contextId:onComplete:onError:) to start it with the content provided in the method signature,</p>
+<pre><code class="language-kotlin">    // ...
+
+    val electronicMusicPlaylist = listOf(&quot;116484855&quot;,&quot;66906273&quot;,&quot;120584575&quot;,&quot;116887896&quot;)
+    val cachedMetadata = listOf(trackMetadata1, trackMetadata2, trackMetadata3, trackMetadata4)
+    AutomixSDK.instance.automixOn(electronicMusicPlaylist,
+                                  cachedMetadata,
+                                  playTrackIndex=0, seconds=0, autoplay=true,
+                                  contextType=&quot;playlist&quot;, contextId=&quot;some-playlist-id&quot;,
+                                  onComplete = 
+    { status -&gt; 
+        this.started = true
+        // We are now playing content.
+        // ...
+    }, onError = { error, status -&gt;
+        // Something went wrong, playback did not start
+    }
+
+    // ...
+</code></pre>
+<h4 id="turn-automix-off">Turn Automix off</h4>
+<p>When stopped, PacemakerAutomix restores the AVAudioSession with the settings it found when starting. 
+To stop the player, use AutomixSDK/automixOff(onComplete:onError:)</p>
+<pre><code class="language-kotlin">    // ...
+
+    AutomixSDK.getInstance()?.automixOff(onComplete = 
+    { status -&gt; 
+        this.started = false
+        // We are no longer playing.
+        // ...    
+    }, onError = { error, status -&gt;
+        // Something went wrong, playback did not stop
+    }
+
+    // ...
+</code></pre>
+<p>This function reports the status of pacemakerAutomix at the time it was stopped, in case you want to have another player pick up playback where PacemakerAutomix left it. See AutomixSDKStatusObserverDelegate.</p>
+<h4 id="check-if-on">Check if on</h4>
+<p>To check wether PacemakerAutomix is currently on, use AutomixSDK/on()</p>
+<h3 id="control-playback">Control playback</h3>
+<p>In order to use playback controls, PacemakerAutomix needs to be Initialized and On. Please see "Configure the SDK".</p>
+<p>Use the AutomixSDK singleton to control playback of the mix. Actions supported are:</p>
+<ul>
+<li>AutomixSDK/resetMixToEmpty(onComplete:onEerror:)</li>
+<li>AutomixSDK/loadTracks(identifiers:metadata:playTrackIndex:seconds:autoplay:contextType:contextId:onComplete:onEerror:)</li>
+<li>AutomixSDK/addTrack(identifier:metadata:index:onComplete:onEerror:)</li>
+<li>AutomixSDK/addTracks(identifiers:metadata:index:onComplete:onEerror:)</li>
+<li>AutomixSDK/removeTrack(at:onComplete:onEerror:)</li>
+<li>AutomixSDK/moveTrack(at:toIndex:onComplete:onEerror:)</li>
+<li>AutomixSDK/play(onComplete:onEerror:)</li>
+<li>AutomixSDK/pause(onComplete:onEerror:)</li>
+<li>AutomixSDK/next(onComplete:onEerror:)</li>
+<li>AutomixSDK/previous(onComplete:onEerror:)</li>
+<li>AutomixSDK/back(onComplete:onEerror:)</li>
+<li>AutomixSDK/seekTo(seconds:onComplete:onEerror:)</li>
+<li>AutomixSDK/skipToTrackAtIndex(_:onComplete:onEerror:)</li>
+<li>AutomixSDK/reorderTracks(newOrder:onComplete:onEerror:)</li>
+<li>AutomixSDK/playTrackUntilEndThenPause(onComplete:onEerror:)</li>
+<li>AutomixSDK/resetMixToEmpty(onComplete:onEerror:)`</li>
+<li>AutomixSDK/loopPlayingTrack(onComplete:onEerror:)`</li>
+<li>AutomixSDK/stopLoopingPlayingTrack(onComplete:onEerror:)`</li>
+</ul>
+<h4 id="player-settings">Player settings</h4>
+<ul>
+<li>AutomixSDK/setAutomixTempoNormalised(_:onComplete:onEerror:)</li>
+<li>AutomixSDK/setAutomixPlaySpeed(_:onComplete:onEerror:)</li>
+<li>AutomixSDK/setMute(on:onComplete:onEerror:)</li>
+<li>AutomixSDK/setReplay(on:onComplete:onEerror:)</li>
+<li>AutomixSDK/setVinylStartStopEnabled(_:onComplete:onEerror:)</li>
+<li>AutomixSDK/setAutomixVolumeNormalised(_:onComplete:onEerror:)</li>
+<li>AutomixSDK/setPreferredTransitionDurationSeconds(_:onComplete:onEerror:)</li>
+</ul>
+<h4 id="explicit-lyrics-filtering">Explicit lyrics filtering</h4>
+<ul>
+<li>AutomixSDK/setFilterExplicit(filterExplicit:onComplete:onEerror:)</li>
+</ul>
+<h3 id="update-ui">Update UI</h3>
+<h4 id="receive-status-updates">Receive status updates</h4>
+<p>PacemakerAutomix reports its state via AutomixSDKStatusObserverDelegate. This delegate reports the status via its statusChanged method every time the status changed, and in the function it specifies the current status and the variables that were altered since the last time an update was issued. Use the status variables to update the content of your player UI.</p>
+<pre><code class="language-kotlin">public class MyPlayer: AutomixSDKStatusObserverDelegate {
+    // ...
+
+    var latestStatus: AutomixSDKStatus? = null
+    override fun statusChanged(variables: List&lt;String&gt;, status: AutomixSDKStatus) {
+        this.latestStatus = status
+        for (property in variables) {    
+            when (property) {
+            when (property) {
+                &quot;playing&quot; -&gt; {
+                    this.playing = status.playing
+                    val playButton = findViewById&lt;View&gt;(R.id.playButton) as Button
+                    playButton.text = if(this.playing) &quot;Pause&quot; else &quot;Play&quot;
+                }
+                &quot;mixing&quot; -&gt; {}
+                &quot;playingTrackIdentifier&quot; -&gt; {}
+                &quot;playingTrackIndex&quot; -&gt; {}
+                &quot;playingTrackCurrentTime&quot; -&gt; {
+                    val ellapsedLabel = findViewById&lt;View&gt;(R.id.ellapsedLabel) as TextView
+                    val remainingLabel = findViewById&lt;View&gt;(R.id.remainingLabel) as TextView
+                    val ellapsedTimeString = this.timeString(status.playingTrackCurrentTime.toInt())
+                    val remainingTimeString = this.timeString((status.playingTrackTotalTime - status.playingTrackCurrentTime).toInt())
+                    ellapsedLabel.text = ellapsedTimeString
+                    remainingLabel.text = remainingTimeString
+                    val seekSlider = findViewById&lt;View&gt;(R.id.seekSlider) as SeekBar
+                    seekSlider.progress = (status.playingTrackCurrentTime/status.playingTrackTotalTime*1000).toInt()
+                }
+                &quot;playingTrackStreamingProgress&quot; -&gt; {}
+                &quot;playingTrackCurrentTimeInternal&quot; -&gt; {}
+                &quot;playingTrackTotalTime&quot; -&gt; {
+                    val remainingLabel = findViewById&lt;View&gt;(R.id.remainingLabel) as TextView
+                    remainingLabel.text = this.timeString((status.playingTrackTotalTime - status.playingTrackCurrentTime).toInt())
+                    val seekSlider = findViewById&lt;View&gt;(R.id.seekSlider) as SeekBar
+                    seekSlider.progress = (status.playingTrackCurrentTime/status.playingTrackTotalTime*1000).toInt()
+                }
+                &quot;canSkipToPrevious&quot; -&gt; {
+                    val previousButton = findViewById&lt;View&gt;(R.id.previousButton) as Button
+                    setViewsEnabled(status.canSkipToPrevious, listOf(previousButton))
+                }
+                &quot;canSkipToNext&quot; -&gt; {
+                    val nextButton = findViewById&lt;View&gt;(R.id.nextButton) as Button
+                    setViewsEnabled(status.canSkipToNext, listOf(nextButton))
+                }
+                &quot;canBack&quot; -&gt; {}
+                &quot;canPlayPause&quot; -&gt; {
+                    val playButton = findViewById&lt;View&gt;(R.id.playButton) as Button
+                    val loopTrackButton = findViewById&lt;View&gt;(R.id.loopTrackButton) as Button
+                    setViewsEnabled(status.canPlayPause, listOf(playButton, loopTrackButton))
+                }
+                &quot;canSeek&quot; -&gt; {
+                    val seekSlider = findViewById&lt;View&gt;(R.id.seekSlider) as SeekBar
+                    setViewsEnabled(status.canSeek, listOf(seekSlider))
+                }
+                &quot;canReorderTracks&quot; -&gt; {
+                    val shuffleButton = findViewById&lt;View&gt;(R.id.shuffleButton) as Button
+                    setViewsEnabled(status.canReorderTracks, listOf(shuffleButton))
+                }
+                &quot;replayOn&quot; -&gt; {
+                    val repeatButton = findViewById&lt;View&gt;(R.id.repeatButton) as Button
+                    if(status.replayOn) {
+                        repeatButton.setTextColor(Color.GREEN)
+                    } else {
+                        repeatButton.setTextColor(Color.WHITE)
+                    }
+                }
+                &quot;readyToPlay&quot; -&gt; {}
+                &quot;canMixNow&quot; -&gt; {}
+                &quot;playlist&quot; -&gt; {}
+                &quot;muted&quot; -&gt; {
+                    val muteButton = findViewById&lt;View&gt;(R.id.muteButton) as Button
+                    val text = if(status.muted) &quot;Unmute&quot; else &quot;Mute&quot;
+                    muteButton.text = text
+                }
+                &quot;masterTempoNormalized&quot; -&gt; {
+                    val tempoSlider = findViewById&lt;View&gt;(R.id.tempoSlider) as SeekBar
+                    tempoSlider.progress = (status.masterTempoNormalized*1000).toInt()
+                }
+                &quot;playSpeed&quot; -&gt; {}
+                &quot;normalisedVolume&quot; -&gt; {
+                    val volumeSlider = findViewById&lt;View&gt;(R.id.volumeSlider) as SeekBar
+                    volumeSlider.progress = (status.normalisedVolume*1000).toInt()
+                }
+                &quot;preferredTransitionDurationSeconds&quot; -&gt; {}
+                &quot;requestedLoopTrackIdentifier&quot; -&gt; {
+                    this.loopingTrack = status.requestedLoopTrackIdentifier != null
+                    val title = if(this.loopingTrack) &quot;Loop track Off&quot; else &quot;Loop track On&quot;
+                    val loopTrackButton = findViewById&lt;View&gt;(R.id.loopTrackButton) as Button
+                    loopTrackButton.text = title
+                }
+                &quot;vinylStartStop&quot; -&gt; {}
+                &quot;nextTransitionDuration&quot; -&gt; {}
+                &quot;transitionStartTimeSeconds&quot; -&gt; {}
+                &quot;failedTrackLoadIdentifiers&quot; -&gt; {}
+                &quot;canOnOff&quot; -&gt; {}
+                &quot;mixEndedAndPaused&quot; -&gt; {}
+            }
+        }
+    }
+
+
+    // ...
+}
+</code></pre>
+<h4 id="receive-playback-events">Receive playback events</h4>
+<p>When a playback event happens, Pacemaker Automix calls the status observer delegate method:</p>
+<pre><code class="language-kotlin">public class MyPlayer: AutomixSDKStatusObserverDelegate {
+    // ...
+
+    override fun playbackEvent(type: AutomixSDKPlaybackEventType, identifier: String?, status: AutomixSDKStatus?) {
+        when (type) {
+            AutomixSDKPlaybackEventType.trackPlayStart -&gt; {}
+            AutomixSDKPlaybackEventType.trackPlayPlayed5Secs -&gt; {}
+            AutomixSDKPlaybackEventType.trackPlayHeartbeat30Secs -&gt; {}
+            AutomixSDKPlaybackEventType.trackPlaySkipped -&gt; {}
+            AutomixSDKPlaybackEventType.trackPlayFinished -&gt; {}
+            AutomixSDKPlaybackEventType.mixPlaybackEnded -&gt; {}
+        }
+    }
+
+    // ...
+}
+</code></pre>
+<p>The type of playback event is modelled by the enum AutomixSDKPlaybackEventType.</p>
+<h4 id="automix-status">Automix Status</h4>
+<p>The status of PacemakerAutomix is modelled by AutomixSDKStatus.</p>
+<h3 id="errors">Errors</h3>
+<p>Find the enumeration describing errors this SDK can emmit <a href="dokka/html/-pacemaker-automix/com.tunedglobal.automix.model/-automix-s-d-k-error/">here</a>.</p>
+<h3 id="data-models">Data models</h3>
+<p>How is data passed to and from the PacemakerAutomix player</p>
+<ul>
+<li>AutomixSDKStatus</li>
+<li>AutomixSDKTrackModel</li>
+<li>AutomixSDKArtistModel</li>
+<li>AutomixSDKPluginMetadataDictionaryEntryModel</li>
+<li>AutomixSDKReportingURLSet</li>
+<li>TunedAuthenticationResponse</li>
+</ul>
+<h3 id="data-persistance">Data persistance</h3>
+<h4 id="music-metadata-database">Music Metadata Database</h4>
+<p>In the Caches Directory, PacemakerAutomix keeps a light weight sql database to store the metadata of tracks that have been played for subsequent lookup. This file is called "music.db" and if deleted will be recreated on launch.</p>
+<h4 id="music-analysis-database">Music Analysis Database</h4>
+<p>In the Caches Directory, PacemakerAutomix keeps a light weight sql database to store the analysis data of tracks that have been played for subsequent lookup. This analysis is required to produce beat-matched transitions. This file is called "paralysis.db" and if deleted will be recreated on launch.</p>
+<h4 id="playback-log">Playback Log</h4>
+<p>PacemakerAutomix stores offline playback logs for subsequent reporting on a Core Data database.</p>
+<h4 id="transition-playback-log">Transition Playback Log</h4>
+<p>PacemakerAutomix stores offline transition playback logs for subsequent reporting on a Core Data database.</p>
+<h4 id="clearing-the-cache">Clearing the cache</h4>
+<p>PacemakerAutomix provides a function to reset persistent analysis storage by calling AutomixSDK/clearCache()</p>
+<h2 id="api-reference">API Reference</h2>
+<p>Find the documentation of available APIs here: <a href="dokka/html/">PacemakerAutomix</a></p>
+<h2 id="change-log">Change Log</h2>
+<p>This is a dev build - No change log available.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.follow", "toc.integrate"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.3220b9d7.min.js"></script>
+      
+    
+  </body>
+</html>
